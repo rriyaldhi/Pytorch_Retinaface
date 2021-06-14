@@ -101,8 +101,8 @@ if __name__ == '__main__':
         scale = scale.to(device)
 
         total = 0
-        n = 51
-        for i in range(51):
+        n = 26
+        for i in range(n):
             tic = time.time()
             loc, conf, landms = net(img)  # forward pass
             print('net forward time: {:.4f}'.format(time.time() - tic))
