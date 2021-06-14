@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
     # testing begin
     for i in range(3):
-        image_path = "./curve/test.jpg"
+        image_path = "./images/1.4k.jpeg"
         img_raw = cv2.imread(image_path, cv2.IMREAD_COLOR)
 
         img = np.float32(img_raw)
@@ -100,9 +100,16 @@ if __name__ == '__main__':
         img = img.to(device)
         scale = scale.to(device)
 
-        tic = time.time()
-        loc, conf, landms = net(img)  # forward pass
-        print('net forward time: {:.4f}'.format(time.time() - tic))
+        total = 0
+        n = 51
+        for i in range(51):
+            tic = time.time()
+            loc, conf, landms = net(img)  # forward pass
+            print('net forward time: {:.4f}'.format(time.time() - tic))
+            duration = time.time() - tic
+            if i > 0:
+                total += duration
+        print(total / (n - 1))
 
         priorbox = PriorBox(cfg, image_size=(im_height, im_width))
         priors = priorbox.forward()
