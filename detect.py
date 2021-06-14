@@ -79,6 +79,7 @@ if __name__ == '__main__':
     print(net)
     cudnn.benchmark = True
     device = torch.device("cpu" if args.cpu else "cuda")
+    print(device)
     net = net.to(device)
     if args.save_model:
         torch.save(net, "retinaface.pth")
