@@ -102,7 +102,7 @@ if __name__ == '__main__':
         scale = scale.to(device)
 
         total = 0
-        n = 5
+        n = 3
         for i in range(n):
             tic = time.time()
             loc, conf, landms = net(img)  # forward pass
