@@ -87,7 +87,9 @@ if __name__ == '__main__':
     resize = 1
 
     # testing begin
-    for i in range(3):
+    total = 0
+    n = 26
+    for i in range(n):
         image_path = "./images/1.fullhd.jpeg"
         img_raw = cv2.imread(image_path, cv2.IMREAD_COLOR)
 
@@ -101,16 +103,11 @@ if __name__ == '__main__':
         img = img.to(device)
         scale = scale.to(device)
 
-        total = 0
-        n = 3
-        for i in range(n):
-            tic = time.time()
-            loc, conf, landms = net(img)  # forward pass
-            print('net forward time: {:.4f}'.format(time.time() - tic))
-            duration = time.time() - tic
-            if i > 0:
-                total += duration
-        print(total / (n - 1))
+        tic = time.time()
+        loc, conf, landms = net(img)  # forward pass
+        print('net forward time: {:.4f}'.format(time.time() - tic))
+        if i > 0:
+            total += time.time() - tic
 
         priorbox = PriorBox(cfg, image_size=(im_height, im_width))
         priors = priorbox.forward()
