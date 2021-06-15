@@ -90,7 +90,7 @@ if __name__ == '__main__':
     total = 0
     n = 25
     for i in range(n):
-        image_path = "./images/2.fullhd.jpeg"
+        image_path = "./images/2.4k.jpeg"
         img_raw = cv2.imread(image_path, cv2.IMREAD_COLOR)
 
         img = np.float32(img_raw)
