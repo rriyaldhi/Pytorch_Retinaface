@@ -105,9 +105,10 @@ if __name__ == '__main__':
 
         tic = time.time()
         loc, conf, landms = net(img)  # forward pass
-        print('net forward time: {:.4f}'.format(time.time() - tic))
+        duration = time.time() - tic
+        print('net forward time: {:.4f}'.format(duration))
         if i > 0:
-            total += time.time() - tic
+            total += duration
 
         priorbox = PriorBox(cfg, image_size=(im_height, im_width))
         priors = priorbox.forward()
