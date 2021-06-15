@@ -106,6 +106,7 @@ if __name__ == '__main__':
         tic = time.time()
         loc, conf, landms = net(img)  # forward pass
         duration = time.time() - tic
+        print(i)
         print('net forward time: {:.4f}'.format(duration))
         if i > 0:
             total += duration
