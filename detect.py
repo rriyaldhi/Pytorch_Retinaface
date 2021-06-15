@@ -88,9 +88,9 @@ if __name__ == '__main__':
 
     # testing begin
     total = 0
-    n = 101
+    n = 1001
     for i in range(n):
-        image_path = "./images/1.sd.jpeg"
+        image_path = "./images/1.4k.jpeg"
         img_raw = cv2.imread(image_path, cv2.IMREAD_COLOR)
 
         img = np.float32(img_raw)
