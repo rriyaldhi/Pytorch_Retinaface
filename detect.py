@@ -176,4 +176,4 @@ if __name__ == '__main__':
             name = "test.jpg"
             cv2.imwrite(name, img_raw)
 
-    print(total / (n - 1))
+    # print(total / (n - 1))
