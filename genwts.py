@@ -7,7 +7,7 @@ import struct
 
 def main():
     print('cuda device count: ', torch.cuda.device_count())
-    device = 'cuda:0'
+    device = torch.device("cpu")
     net = torch.load('retinaface.pth')
     net = net.to(device)
     net.eval()
